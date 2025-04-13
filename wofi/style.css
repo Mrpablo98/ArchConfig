@@ -1,0 +1,81 @@
+
+#window {
+	border: 1px solid;
+    border-image-source: linear-gradient(180deg, rgb(84, 197, 241), rgb(0, 26, 142));
+    border-image-slice: 1;
+	background-color: rgb(1, 1, 10);
+	font-size: 18px;
+	font-family: "Iosevka Term SS03 Medium";
+}
+
+#inner-box{
+	margin: 3px;
+	border-radius: 25px;
+    background-color: rgb(1, 1, 10);
+	border: none;
+}
+
+#outer-box {
+	margin: 3px;
+	border-radius: 25px;
+    background-color: rgb(1, 1, 10);
+	border: none;
+}
+
+#input {
+	border: none;
+	border-radius: 25px;
+	background-color: transparent;
+	color: beige;
+	margin: 3px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#input image:first-child {
+	margin-left: -100px;
+}
+
+#input image:last-child {
+	margin-right: -100px;
+}
+
+#input:focus {
+	border-radius: 0;
+}
+
+#entry {
+	color: beige;
+	background-color: rgb(1, 1, 10);
+}
+
+#entry:selected {
+	border-radius: 25px;
+	background:  linear-gradient(90deg,  rgb(0, 26, 142), rgb(84, 197, 241));
+}
+
+#text:selected {
+	color: beige;
+}
+
+#img {
+	margin-right: 5px;
+	margin-left: 3px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#popup {
+    background-color: rgb(1, 1, 10);
+    color: beige;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+#popup:selected {
+    background-color: rgba(84, 197, 241, 0.5);
+    color: white;
+}
+
+#text {
+	margin-left: 3px;
+}

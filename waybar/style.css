@@ -1,0 +1,149 @@
+/* Estilos generales para Waybar */
+* {
+    font-family: "Orbitron" ,"Noto Sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", Roboto, Helvetica, Arial, sans-serif, monospace;
+    font-size: 12px;
+    min-height: 0;
+    color: rgba(253,246,227, 1);
+    border: none;
+    border-radius: 0;
+}
+
+/* Fondo de la barra: negro (con transparencia) y borde inferior blanco de 1px */
+window#waybar {
+    background: transparent;
+    color: #ffffff;
+}
+#workspaces{
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 3px 20px;
+    margin: 3px 3px;
+    border-radius: 25px;
+}
+
+/* Botones de workspaces */
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    border-top: none;
+    color: #ffffff;
+}
+#workspaces button.active * {
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+#window{
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 5px 50px;
+    margin: 3px 3px;
+    border-radius: 20px;
+}
+
+/* Estilos base para los módulos: fondo transparente y texto blanco */
+#battery, #cpu, #memory, #backlight, #network, #pulseaudio, 
+#custom-playerctl, #mode, #idle_inhibitor, #clock, #tray, #custom-temperature {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 10px 10px;
+    margin: 3px 3px;
+    border-radius: 20px;
+}
+
+/* Módulo de reloj */
+#clock {
+    font-family: "Orbitron" , "DejaVu Sans Mono", "Fira Code", monospace;
+    min-width: 100px;  /* Ajusta este valor según el espacio que necesites */
+}
+
+
+/* Módulo de batería */
+#battery {
+    color: #0094ff;
+}
+
+#battery.charging {
+    color :#1ba100;
+}
+
+#battery.warning:not(.charging) {
+    color: #efb219;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff3100;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Módulo de CPU */
+#cpu {
+    color: #0094ff;
+}
+
+/* Módulo de Memoria */
+#memory {
+    color: #c341ff;
+}
+
+/* Módulo de brillo */
+#backlight {
+    color: #ffd200;
+}
+
+/* Módulo de red */
+#network {
+    color:  #1ba100;
+}
+
+#network.disconnected {
+    color: #ff3100;
+}
+
+/* Módulo de audio */
+#pulseaudio {
+    
+}
+
+#pulseaudio.muted {
+    
+}
+/* Ejemplo para el módulo personalizado de temperatura */
+#custom-temperature.temp_low {
+    color: #FFD700; /* Amarillo */
+}
+
+#custom-temperature.temp_mid {
+    color: #FFA500; /* Naranja */
+}
+
+#custom-temperature.temp_high {
+    color: #FF0000; /* Rojo */
+}
+
+
+/* Animación para batería crítica */
+@keyframes blink {
+    to {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+}
+
+/* Esta regla se aplicará a todos los tooltips */
+.tooltip {
+    font-size: 18px;      /* Aumenta el tamaño de fuente */
+    padding: 10px;        /* Más espacio alrededor del contenido */
+    /* Opcional: podrías ajustar el ancho o altura mínima si lo requieres */
+    min-width: 150px;
+    min-height: 50px;
+}
+
+/* Reglas específicas para el tooltip del módulo de reloj */
+.module-clock .tooltip {
+    font-size: 18px;
+    padding: 10px;
+    min-width: 150px;
+    min-height: 50px;
+}

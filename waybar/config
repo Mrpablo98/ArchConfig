@@ -1,0 +1,116 @@
+{
+	"layer": "bottom",
+	"position": "top",
+	"height": 24,
+	"ipc": true,
+	// "width": 1280, // Waybar width
+	// Choose the order of the modules
+	"modules-left": ["hyprland/hide", "hyprland/workspaces", "hyprland/mode", "custom/playerctl"],
+	"modules-center": ["hyprland/window"],
+	"modules-right": ["custom/temperature", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "battery#bat2", "clock", "tray"],
+	// Modules configuration
+	"hyprland/workspaces": {
+		"disable-scroll": false,
+		"all-outputs": false,
+		// no format used, prefer formatting in sway with strip-workspace-numbers
+		"format": "{name}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"hyprland/mode": {
+		"format": "{}"
+	},
+	"hyprland/window": {
+		"icon": true
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"tray": {
+		"icon-size": 20,
+		"spacing": 4
+	},
+	"clock": {
+		"interval": 1,
+		"locale": "C",
+		"format": "{:%T<small> %Z</small>}",
+		"format-alt": "<small>{:%F | %T %Z}</small>",
+		"tooltip-format": "<tt>{calendar}</tt>"
+	},
+	"clock#UTC": {
+		"format": "{:%H:%M<small> %Z</small>}",
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"timezone": "UTC"
+	},
+	"cpu": {
+		"format": "{usage}% "
+	},
+	"memory": {
+		"format": "{}% "
+	},
+	"backlight": {
+		 "device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"on-scroll-up" : "brightnessctl -d intel_backlight set +1%",
+		"on-scroll-down" : "brightnessctl -d intel_backlight set 1%-",
+		"format-icons": ["", ""]
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% <big>{icon}</big>",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"battery#bat2": {
+		"bat": "BAT2"
+	},
+	"network": {
+		// "interface": "wlp2s0", // (Optional) To force the use of this interface
+		"format-wifi": "<small>{ipaddr}</small> ({signalStrength}%)<big> </big>",
+		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+		"format-disconnected": "<small>Disconnected ⚠</small>"
+	},
+	"pulseaudio": {
+		//"scroll-step": 1,
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+		"on-click": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+		"on-right-click": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+		"format-muted": "",
+		"format-icons": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"on-click": "pavucontrol"
+	},
+	"custom/temperature": {
+    "exec": "$HOME/.config/waybar/scripts/cpu_temp.sh",
+    "return-type": "json",
+    "interval": 5,
+    "max-length": 10,
+    "format": " {text}"
+}
+
+}
+// vim: syntax=json
