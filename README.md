@@ -1,1 +1,1 @@
-# ArchConfig
+# Arch Linux Confighuration
